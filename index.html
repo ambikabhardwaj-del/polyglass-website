@@ -989,6 +989,8 @@ a.v-icard,a.v-icard *{text-decoration:none!important}
 .v-ctrf .v-btn.ghost,.v-loc-bar .v-btn.ghost{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.6)!important}
 .v-ctr-tabs button{padding:8px 18px;font-family:var(--hand);font-size:1.15rem;background:transparent;border:0;cursor:pointer;color:var(--ink)}
 .v-ctr-tabs button.on{background:var(--ink);color:var(--paper)}
+/* one scrollbar: while a page view is open, the page underneath stops scrolling so only the view's scrollbar shows */
+html.view-open,html.view-open body{overflow:hidden}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

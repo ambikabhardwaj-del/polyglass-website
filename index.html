@@ -1019,6 +1019,9 @@ html.view-open #hdr{right:var(--vsb,0px)}
 #view .v-phero .v-pn em,#view .v-phero .v-pn em .w>span{color:var(--orange)!important}
 #view .v-phero .v-kick{color:rgba(255,255,255,.88)!important}
 @media(max-width:760px){#view .v-card .v-cn{font-size:1.12rem!important;padding:10px 14px 0}#view .v-phero .v-pn{font-size:1.6rem}}
+/* article and event hero photo fills its frame instead of sitting in a white letterbox */
+#view .v-art-hero{background:transparent;border:0}
+#view .v-art-hero img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;border-radius:18px}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

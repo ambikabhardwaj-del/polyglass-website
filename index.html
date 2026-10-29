@@ -991,6 +991,7 @@ a.v-icard,a.v-icard *{text-decoration:none!important}
 .v-ctr-tabs button.on{background:var(--ink);color:var(--paper)}
 /* one scrollbar: while a page view is open, the page underneath stops scrolling so only the view's scrollbar shows */
 html.view-open,html.view-open body{overflow:hidden}
+html.view-open #hdr{right:var(--vsb,0px)}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -5539,6 +5540,9 @@ let reset=()=>{sel={};q="";inp.value="";facets();draw()};
 Rs(".v-seg button",host).forEach(b=>b.addEventListener("click",()=>{typ=+b.dataset.ty;sel={};Rs(".v-seg button",host).forEach(x=>{x.classList.toggle("on",x===b);x.setAttribute("aria-pressed",x===b)});facets();draw()}));
 inp.addEventListener("input",()=>{q=inp.value.trim().toLowerCase();facets();draw()});mn(".v-dd-reset",host).addEventListener("click",reset);facets();draw()}
 function pxAfter(s,t,sub){t.feed&&pxFeed(mn(".v-feedhost",we),PL[t.feed]||[]);t.loc&&locView(mn(".v-lochost",we),t.loc,sub);t.ctr&&ctrSearch(mn(".v-ctrhost",we));t.evs&&pxEvents(mn(".v-evhost",we));t.dd&&ddView(mn(".v-ddhost",we),t);pxFix(we)}
+/* keep the fixed header off the inner-page scrollbar so the whole scrollbar is visible */
+function sbFix(){let v=document.getElementById("view"),w=v&&v.classList.contains("on")?v.offsetWidth-v.clientWidth:0;document.documentElement.style.setProperty("--vsb",w+"px")}
+addEventListener("hashchange",()=>{setTimeout(sbFix,60);setTimeout(sbFix,1200)});addEventListener("resize",sbFix);setTimeout(sbFix,1500);
 
 var W_=0;V_({open:()=>{W_=gn?gn.scroll:scrollY,gn&&gn.stop(),document.body.classList.add("in-view"),document.body.classList.remove("hdr-light")},close:()=>{document.body.classList.remove("in-view"),gn&&(gn.start(),gn.scrollTo(W_,{immediate:!0})),Zt.refresh()}});document.addEventListener("scroll",s=>{let t=s.target;if(!t||t.id!=="view")return;let e=[...t.querySelectorAll(".pg-foot, .ct-b")].some(n=>{let i=n.getBoundingClientRect();return i.top<=40&&i.bottom>=40});document.body.classList.toggle("hdr-light",e)},!0);Bp(document);addEventListener("load",()=>Zt.refresh());Zt.refresh();})();
 </script>

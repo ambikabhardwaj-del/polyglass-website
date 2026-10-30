@@ -1041,7 +1041,7 @@ html.view-open #hdr{right:var(--vsb,0px)}
 #story #endCopy::before{display:none!important}
 #story #endCopy .end-h{font-size:clamp(3rem,7.4vw,8rem);color:var(--teal);max-width:36vw;margin:0}
 #story #endCopy .end-h span{display:block}
-@media(max-width:760px){#story #endCopy{top:10vh!important}#story #endCopy .end-h{font-size:clamp(3rem,15vw,4.8rem)}}
+@media(max-width:760px){#story #endCopy{top:10vh!important}#story #endCopy .end-h{font-size:clamp(3rem,15vw,4.8rem);max-width:none}}
 /* the same paper fog as the first screen; ext.js fades it in (--fog 0 to 1) together with the "Built to last" headline */
 #story .st-photo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--fog,0);background:
  linear-gradient(90deg,rgba(241,239,232,.96) 0%,rgba(241,239,232,.86) 26%,rgba(241,239,232,0) 52%),
@@ -1093,7 +1093,7 @@ html.view-open #hdr{right:var(--vsb,0px)}
 
   <!-- the finished building over the closing words, with the next section rising beneath it -->
   <p id="keep" class="st-keep" aria-hidden="true">Built to last.</p>
-  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><h2 class="end-h"><span>Built</span><span>to last.</span></h2></div>
+  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><h2 class="end-h"><span>Built to</span><span>last, layer</span><span>by layer.</span></h2></div>
   <ol class="dg-labels"><li data-step="0"><b>01</b><span>Cap sheet</span></li><li data-step="1"><b>02</b><span>Base sheet</span></li><li data-step="2"><b>03</b><span>Coverboard</span></li><li data-step="3"><b>04</b><span>Insulation</span></li><li data-step="4"><b>05</b><span>Air &amp; vapor barrier</span></li><li data-step="5"><b>06</b><span>Roof deck</span></li></ol><svg class="dg-svg" aria-hidden="true"></svg><div id="scallop" class="st-scallop" aria-hidden="true"></div>
  </div>
 </section>

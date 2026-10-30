@@ -1039,14 +1039,15 @@ html.view-open #hdr{right:var(--vsb,0px)}
 /* homepage closing frame: "Built to last" uses the hero headline's font, size and place; the sentence and the mist behind it are removed */
 #story #endCopy{left:var(--gut)!important;right:auto!important;top:15vh!important;width:auto!important}
 #story #endCopy::before{display:none!important}
-#story #endCopy .end-h{font-size:clamp(3rem,7.4vw,8rem);color:var(--teal);max-width:36vw;margin:0 0 28px}
+#story #endCopy .end-h{font-size:clamp(3rem,7.4vw,8rem);color:var(--teal);max-width:36vw;margin:0}
 #story #endCopy .end-h span{display:block}
 @media(max-width:760px){#story #endCopy{top:10vh!important}#story #endCopy .end-h{font-size:clamp(3rem,15vw,4.8rem)}}
-/* with the mist gone, the closing link sits straight on the photo: a solid pill keeps its label readable */
-#story #endCopy .ed-link{background:var(--teal)!important;color:#fff!important;padding:6px 6px 6px 22px!important;border-radius:999px!important;box-shadow:0 10px 26px -14px rgba(0,40,40,.6)!important;transition:background .3s}
-#story #endCopy .ed-link i{background:#fff;color:var(--teal)}
-#story #endCopy .ed-link:hover{background:#00575a!important}
-#story #endCopy .ed-link:hover i{background:var(--orange);color:#fff}
+/* the same paper fog as the first screen; ext.js fades it in (--fog 0 to 1) together with the "Built to last" headline */
+#story .st-photo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--fog,0);background:
+ linear-gradient(90deg,rgba(241,239,232,.96) 0%,rgba(241,239,232,.86) 26%,rgba(241,239,232,0) 52%),
+ linear-gradient(180deg,rgba(241,239,232,.55) 0%,rgba(241,239,232,0) 22%)}
+#story .st-photo::after{opacity:calc(1 - var(--fog,0))}
+@media(max-width:760px){#story .st-photo::before{background:linear-gradient(180deg,rgba(241,239,232,.95) 0%,rgba(241,239,232,.8) 32%,rgba(241,239,232,0) 52%,rgba(241,239,232,0) 70%,rgba(241,239,232,.92) 88%)}}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -1092,7 +1093,7 @@ html.view-open #hdr{right:var(--vsb,0px)}
 
   <!-- the finished building over the closing words, with the next section rising beneath it -->
   <p id="keep" class="st-keep" aria-hidden="true">Built to last.</p>
-  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><h2 class="end-h"><span>Built</span><span>to last.</span></h2><a class="pill ed-link" href="#/roofing"><span>Explore systems</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
+  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><h2 class="end-h"><span>Built</span><span>to last.</span></h2></div>
   <ol class="dg-labels"><li data-step="0"><b>01</b><span>Cap sheet</span></li><li data-step="1"><b>02</b><span>Base sheet</span></li><li data-step="2"><b>03</b><span>Coverboard</span></li><li data-step="3"><b>04</b><span>Insulation</span></li><li data-step="4"><b>05</b><span>Air &amp; vapor barrier</span></li><li data-step="5"><b>06</b><span>Roof deck</span></li></ol><svg class="dg-svg" aria-hidden="true"></svg><div id="scallop" class="st-scallop" aria-hidden="true"></div>
  </div>
 </section>
@@ -5598,6 +5599,9 @@ function pxAfter(s,t,sub){t.feed&&pxFeed(mn(".v-feedhost",we),PL[t.feed]||[]);t.
 /* keep the fixed header off the inner-page scrollbar so the whole scrollbar is visible */
 function sbFix(){let v=document.getElementById("view"),w=v&&v.classList.contains("on")?v.offsetWidth-v.clientWidth:0;document.documentElement.style.setProperty("--vsb",w+"px")}
 addEventListener("hashchange",()=>{setTimeout(sbFix,60);setTimeout(sbFix,1200)});addEventListener("resize",sbFix);setTimeout(sbFix,1500);
+/* homepage closing frame: the first screen's paper fog fades in on the photo together with the "Built to last" headline (story positions 90 to 93) */
+(()=>{let ph=document.querySelector("#story .st-photo");if(!ph)return;let F={v:0},set=()=>ph.style.setProperty("--fog",F.v.toFixed(3));set();
+let arm=n=>{let st=window.__story;if(!st||!st.tl){n<150&&setTimeout(()=>arm(n+1),200);return}st.tl.fromTo(F,{v:0},{v:1,duration:3,ease:"power2.out",immediateRender:!1,onUpdate:set},90)};arm(0)})();
 
 var W_=0;V_({open:()=>{W_=gn?gn.scroll:scrollY,gn&&gn.stop(),document.body.classList.add("in-view"),document.body.classList.remove("hdr-light")},close:()=>{document.body.classList.remove("in-view"),gn&&(gn.start(),gn.scrollTo(W_,{immediate:!0})),Zt.refresh()}});document.addEventListener("scroll",s=>{let t=s.target;if(!t||t.id!=="view")return;let e=[...t.querySelectorAll(".pg-foot, .ct-b")].some(n=>{let i=n.getBoundingClientRect();return i.top<=40&&i.bottom>=40});document.body.classList.toggle("hdr-light",e)},!0);Bp(document);addEventListener("load",()=>Zt.refresh());Zt.refresh();})();
 </script>

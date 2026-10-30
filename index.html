@@ -1036,6 +1036,17 @@ html.view-open #hdr{right:var(--vsb,0px)}
 @media(max-width:760px){#story{height:1350vh}}
 /* homepage hero: the "From the deck up" text block and its light wash are removed so the building shows clearly */
 #story #heroCopy{display:none!important}
+/* homepage closing frame: "Built to last" uses the hero headline's font, size and place; the sentence and the mist behind it are removed */
+#story #endCopy{left:var(--gut)!important;right:auto!important;top:15vh!important;width:auto!important}
+#story #endCopy::before{display:none!important}
+#story #endCopy .end-h{font-size:clamp(3rem,7.4vw,8rem);color:var(--teal);max-width:36vw;margin:0 0 28px}
+#story #endCopy .end-h span{display:block}
+@media(max-width:760px){#story #endCopy{top:10vh!important}#story #endCopy .end-h{font-size:clamp(3rem,15vw,4.8rem)}}
+/* with the mist gone, the closing link sits straight on the photo: a solid pill keeps its label readable */
+#story #endCopy .ed-link{background:var(--teal)!important;color:#fff!important;padding:6px 6px 6px 22px!important;border-radius:999px!important;box-shadow:0 10px 26px -14px rgba(0,40,40,.6)!important;transition:background .3s}
+#story #endCopy .ed-link i{background:#fff;color:var(--teal)}
+#story #endCopy .ed-link:hover{background:#00575a!important}
+#story #endCopy .ed-link:hover i{background:var(--orange);color:#fff}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -1081,7 +1092,7 @@ html.view-open #hdr{right:var(--vsb,0px)}
 
   <!-- the finished building over the closing words, with the next section rising beneath it -->
   <p id="keep" class="st-keep" aria-hidden="true">Built to last.</p>
-  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><p class="ed-k">Built to last</p><p class="ed-t ed-big">The finished roof is only the part you can see.</p><a class="pill ed-link" href="#/roofing"><span>Explore systems</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
+  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><h2 class="end-h"><span>Built</span><span>to last.</span></h2><a class="pill ed-link" href="#/roofing"><span>Explore systems</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
   <ol class="dg-labels"><li data-step="0"><b>01</b><span>Cap sheet</span></li><li data-step="1"><b>02</b><span>Base sheet</span></li><li data-step="2"><b>03</b><span>Coverboard</span></li><li data-step="3"><b>04</b><span>Insulation</span></li><li data-step="4"><b>05</b><span>Air &amp; vapor barrier</span></li><li data-step="5"><b>06</b><span>Roof deck</span></li></ol><svg class="dg-svg" aria-hidden="true"></svg><div id="scallop" class="st-scallop" aria-hidden="true"></div>
  </div>
 </section>

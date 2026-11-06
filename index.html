@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Polyglass | Protection in every layer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Caveat:wght@500&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>/* ===================================================================================================
    Polyglass homepage, rebuilt from zero after the Palmo reference: a paper-white stage, one central
    3D building, oversized condensed type, scalloped section edges, dark product range, tilted photos,
@@ -1058,6 +1058,78 @@ html.pg-wait::after{content:"";position:fixed;left:0;top:0;height:3px;width:30%;
 .nv-dd-in{background:rgba(241,239,232,.98)!important;border:1px solid rgba(0,106,108,.16)!important;box-shadow:0 24px 48px -18px rgba(0,60,62,.35)!important;padding:8px!important;border-radius:14px!important}
 .navpill .nv-dd a{color:#004E50!important;font-weight:600!important;font-size:.86rem!important;padding:9px 12px}
 .navpill .nv-dd a:hover,.navpill .nv-dd a:focus-visible{background:rgba(0,106,108,.1)!important;color:#004E50!important}
+
+/* ===== Polish pass (Nov 2026): the minimal look of the INSIDEA concept sites. Two typefaces, a plain header, flat cards, more air. ===== */
+:root{--hand:'Manrope',system-ui,sans-serif;--mono:'Manrope',system-ui,sans-serif;--sans:'Manrope',system-ui,sans-serif;--serif:'Barlow Condensed','Arial Narrow',sans-serif}
+
+/* header: logo, plain sentence-case links, one solid button */
+header{padding-top:13px;padding-bottom:13px;background:rgba(241,239,232,.97);border-bottom:1px solid rgba(0,78,80,.14)}
+.navpill{gap:2px}
+.navpill .nv>a{font-family:var(--body)!important;font-weight:600!important;text-transform:none!important;letter-spacing:0!important;font-size:clamp(.84rem,.55rem + .4vw,.95rem)!important;padding:8px 11px!important;border-radius:0;color:rgba(0,78,80,.78)!important;position:relative;transition:color .25s}
+.navpill .nv>a::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.navpill .nv>a:hover,.navpill .nv.has:hover>a,.navpill .nv.cur>a,body.hdr-light .navpill .nv>a:hover,body.hdr-light .navpill .nv.cur>a{background:none!important;color:#004E50!important}
+.navpill .nv.cur>a::after{transform:scaleX(1)}
+body.hdr-light .navpill .nv>a{color:rgba(255,255,255,.8)!important}
+body.hdr-light .navpill .nv>a:hover,body.hdr-light .navpill .nv.cur>a,body.hdr-light .navpill .nv.has:hover>a{color:#fff!important}
+.hdr-rep,body.in-view .hdr-rep{font-family:var(--body)!important;font-weight:700;text-transform:none;letter-spacing:0;font-size:.88rem;height:42px;padding:0 18px;border-radius:999px;gap:9px}
+.hdr-rep:hover{background:var(--dark)!important;color:#fff!important}
+.hdr-rep svg{width:16px;height:16px}
+.mnav-b{font-family:var(--body)!important;font-weight:700!important;text-transform:none!important;letter-spacing:0!important;font-size:.9rem!important}
+.nv-dd{padding-top:10px}
+.nv-dd-in{padding:6px!important;border-radius:12px!important}
+.navpill .nv-dd a{font-size:.9rem!important;padding:9px 12px;border-radius:8px}
+
+/* buttons and pills: one shape everywhere */
+.pill{font-family:var(--body);font-weight:700;font-size:.92rem;padding:12px 22px;border-width:1.5px;gap:10px}
+.v-more button,.v-btn,.v-form button{font-family:var(--body)!important;font-weight:700!important;font-size:.92rem!important;padding:12px 22px!important;border-radius:999px!important}
+.v-seg a,.v-seg button,.v-ctr-tabs button,.v-evtabs button{font-family:var(--body)!important;font-weight:600;font-size:.9rem!important;padding:8px 16px}
+.v-tabs a,.v-subtabs a{font-family:var(--body)!important;font-weight:600;font-size:.86rem!important;letter-spacing:0!important;text-transform:none!important;padding:9px 16px;border:1px solid rgba(0,78,80,.18)!important;background:transparent}
+.v-tabs a b,.v-subtabs a b{font-weight:600;opacity:.6;margin-left:5px}
+.v-tabs a.on,.v-subtabs a.on{background:var(--dark)!important;color:#fff!important;border-color:var(--dark)!important}
+.v-tabs a.on b{color:rgba(255,255,255,.7)!important}
+
+/* page openers: smaller titles, calmer tagline */
+.v-crumb{font-size:.72rem;letter-spacing:.12em;color:rgba(0,78,80,.55)}
+#view .v-kick{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.v-pn{font-size:clamp(2.4rem,4.8vw,4.2rem);letter-spacing:0}
+.v-h1{font-size:clamp(2.6rem,6vw,5rem)}
+.v-intro{font-size:1.08rem;line-height:1.6;max-width:58ch}
+.v-pt{font-family:var(--body)!important;font-size:1.12rem!important;font-weight:500!important;line-height:1.5;opacity:1;color:rgba(0,78,80,.78)!important}
+.v-inner{--s4:48px;--s5:80px}
+#view .v-sec{border-top-color:rgba(0,78,80,.12)}
+#view .v-sh{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.16em;color:var(--teal)}
+
+/* cards: white, one thin line, no heavy shadows */
+#view .v-card{background:#fff!important;border:1px solid rgba(0,78,80,.13);border-radius:12px;padding:0 0 16px!important;transition:border-color .3s,transform .3s}
+#view .v-card:hover{transform:translateY(-3px);border-color:rgba(0,78,80,.4);background:#fff!important}
+#view .v-card .v-tile{border-radius:0;border:0;background:#f6f4ee}
+#view .v-card .v-cn{font-family:var(--disp)!important;font-weight:700!important;text-transform:uppercase;font-size:1.22rem!important;letter-spacing:.01em;line-height:1.04!important;border-top:0;padding:12px 16px 0;margin:0}
+#view .v-card .v-ct{font-family:var(--body);font-size:.8rem;color:rgba(0,78,80,.72);padding:0 16px}
+#view .v-ccard,#view .v-tcard,#view .v-icard,#view .v-loccard,#view .v-pjcard{border-radius:12px}
+
+/* homepage bits that used the handwriting face: sized for Manrope now */
+.st-cue{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.st-facts{font-size:.95rem;font-weight:500}
+.st-badge small{font-size:.78rem;font-weight:600}
+.st-more{font-size:.95rem;font-weight:600}
+.st-end p{font-size:1.05rem}
+.sm-note{font-size:.78rem}
+.ct-l{font-size:.95rem;font-weight:600}
+.ps-card span{font-size:.9rem;font-weight:500}
+.ft-links a{font-size:.95rem;font-weight:500}
+.v-or{font-size:.9rem}
+/* phones and tablets: the menu button was hidden by a base rule, so small screens had no navigation at all */
+@media(max-width:900px){.mnav-b{display:inline-flex!important;align-items:center;justify-content:center;width:auto;height:42px;padding:0 16px;border-radius:999px;border:0;background:var(--dark);color:#fff;backdrop-filter:none}
+ body.hdr-light .mnav-b{background:#fff;color:var(--dark)}body.mopen .mnav-b{background:var(--orange)!important;color:var(--dark)!important}
+ .hdr-r{display:flex;align-items:center;gap:8px}}
+/* lighter search bar and plain breadcrumb, like the concept sites */
+#view .v-tool{background:#fff!important;border:1px solid rgba(0,78,80,.14);border-radius:14px;box-shadow:none}
+#view .v-tool .v-search input,#view .v-tool input[type=search],#view .v-tool input{background:#f6f4ee;border:1px solid rgba(0,78,80,.14);color:var(--dark)}
+#view .v-tool .v-seg a,#view .v-tool .v-seg button,#view .v-tool label,#view .v-tool .v-sel{color:var(--dark)}
+#view .v-tool .v-seg a.on,#view .v-tool .v-seg button.on{background:var(--dark)!important;color:#fff!important}
+#view .v-crumb a{text-decoration:none!important}
+.mnav a{text-decoration:none!important}
+@media(max-width:760px){.v-pn{font-size:clamp(1.9rem,8.4vw,2.6rem)!important}.v-h1{font-size:clamp(2.2rem,10vw,3.2rem)!important}#view .v-tabs,#view .v-subtabs{justify-content:flex-start}}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

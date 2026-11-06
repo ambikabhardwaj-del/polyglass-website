@@ -1168,6 +1168,24 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
 .st-stick{height:100vh;height:100svh;height:100dvh}
 /* phones: the closing "right system" block on inner pages stacks like it does on the homepage */
 @media(max-width:760px){.pg-cta{grid-template-columns:1fr}.ct-a,.ct-b{min-height:0}.ct-b{min-height:380px}.ct-i{padding:50px 24px 30px}.ct-a h2{font-size:clamp(2.4rem,11vw,3.4rem)}}
+/* phone pass 3: readable small text, no double box in search, long links wrap */
+#view .v-tool .v-search input{background:none;border:0;padding:0}
+#view .v-table dd,#view .v-table dd a,#view .v-body a,#view .v-rel a{overflow-wrap:anywhere;word-break:break-word}
+@media(max-width:900px){
+ #view .v-pcard-d{font-size:.78rem;letter-spacing:.1em}
+ #view .v-crumb{font-size:.84rem;flex-wrap:wrap;row-gap:4px}
+ #view .ct-k,#view .ft-k{font-size:.74rem}
+ #view .v-table dt,#view .v-table dd{font-size:.95rem}
+}
+/* page headers: eyebrow follows the title alignment */
+#view .v-head:not(.v-article .v-head) .v-kick{justify-content:center}
+@media(max-width:760px){
+ #view .v-head{text-align:left;margin:0;max-width:none}
+ #view .v-head:not(.v-article .v-head) .v-kick{justify-content:flex-start}
+ #view .v-head .v-intro{margin-left:0!important;margin-right:0!important}
+ #view .v-table div{flex-direction:column;gap:4px;align-items:flex-start}
+ #view .v-table dd{text-align:left}
+}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

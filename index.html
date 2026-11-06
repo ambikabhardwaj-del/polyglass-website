@@ -1158,6 +1158,7 @@ html:not(.pg-ready) #story+*{visibility:hidden}
 html:not(.pg-ready) .nv-dd{display:none!important}
 .nv.has:hover .nv-dd,.nv.has:focus-within .nv-dd{transition-delay:.3s,.3s,0s}
 html:not(.nav-live) .nv-dd{display:none!important}
+html:not(.pg-ready) #story .st-stage,html:not(.pg-ready) #story .st-photo0,html:not(.pg-ready) #story .st-scan0{visibility:hidden}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -5723,7 +5724,7 @@ function __pgLoad(){if(__pgReady)return Promise.resolve();if(__pgP)return __pgP;
  return __pgP}
 addEventListener("load",()=>setTimeout(()=>{__pgReady||__pgP||__pgLoad().catch(()=>{})},3500));
 /* the stage is revealed once the scroll story exists (or after 8 s at most) */
-(function pgReady(n){if((window.__story&&window.__story.tl)||n>80){document.documentElement.classList.add("pg-ready")}else setTimeout(()=>pgReady(n+1),100)})(0);
+(function pgReady(n){if(window.__pgPosed||n>120){requestAnimationFrame(()=>requestAnimationFrame(()=>document.documentElement.classList.add("pg-ready")))}else setTimeout(()=>pgReady(n+1),50)})(0);
 /* dropdowns open only after the visitor has actually moved the mouse (or used the keyboard). A cursor parked over the menu row
    while the page loads must not open a panel when the browser re-checks what is under it. */
 (()=>{let x0=null,y0=null,on=()=>document.documentElement.classList.add("nav-live");
@@ -5780,7 +5781,7 @@ const arm=()=>{const st=window.__story,cam=window.__cam;if(!st||!st.tl||!cam){se
        .fromTo(sc,{opacity:0},{opacity:1,duration:.8},1)
        .fromTo(sv,{v:-10},{v:112,duration:6.5,ease:'none',onUpdate:set,immediateRender:true},1.2)
        .to(sc,{opacity:0,duration:.8},7.4);
-  apply();st.tl.progress(st.tl.progress());};
+  apply();st.tl.progress(st.tl.progress());window.__pgPosed=1;};
 arm();})();</script>
 </body>
 </html>

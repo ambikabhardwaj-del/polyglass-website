@@ -1157,6 +1157,7 @@ html:not(.pg-ready) #story+*{visibility:hidden}
 /* dropdowns: none at all until the page is fully set up, and a deliberate pause before one opens */
 html:not(.pg-ready) .nv-dd{display:none!important}
 .nv.has:hover .nv-dd,.nv.has:focus-within .nv-dd{transition-delay:.3s,.3s,0s}
+html:not(.nav-live) .nv-dd{display:none!important}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -5723,6 +5724,11 @@ function __pgLoad(){if(__pgReady)return Promise.resolve();if(__pgP)return __pgP;
 addEventListener("load",()=>setTimeout(()=>{__pgReady||__pgP||__pgLoad().catch(()=>{})},3500));
 /* the stage is revealed once the scroll story exists (or after 8 s at most) */
 (function pgReady(n){if((window.__story&&window.__story.tl)||n>80){document.documentElement.classList.add("pg-ready")}else setTimeout(()=>pgReady(n+1),100)})(0);
+/* dropdowns open only after the visitor has actually moved the mouse (or used the keyboard). A cursor parked over the menu row
+   while the page loads must not open a panel when the browser re-checks what is under it. */
+(()=>{let x0=null,y0=null,on=()=>document.documentElement.classList.add("nav-live");
+ addEventListener("pointermove",e=>{if(x0===null){x0=e.clientX;y0=e.clientY;return}if(Math.abs(e.clientX-x0)+Math.abs(e.clientY-y0)>6)on()},{passive:true});
+ addEventListener("keydown",e=>{e.key==="Tab"&&on()})})();
 
 var W_=0;V_({open:()=>{W_=gn?gn.scroll:scrollY,gn&&gn.stop(),document.body.classList.add("in-view"),document.body.classList.remove("hdr-light")},close:()=>{document.body.classList.remove("in-view"),gn&&(gn.start(),gn.scrollTo(W_,{immediate:!0})),Zt.refresh()}});document.addEventListener("scroll",s=>{let t=s.target;if(!t||t.id!=="view")return;let e=[...t.querySelectorAll(".pg-foot, .ct-b")].some(n=>{let i=n.getBoundingClientRect();return i.top<=40&&i.bottom>=40});document.body.classList.toggle("hdr-light",e)},!0);Bp(document);addEventListener("load",()=>Zt.refresh());Zt.refresh();})();
 </script>

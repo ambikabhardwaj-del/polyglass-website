@@ -5767,6 +5767,14 @@ if(/[?&]diag=1/.test(location.search)){setTimeout(()=>{let gl=null;try{const c=d
 addEventListener("error",e=>{(window.__pgErr=window.__pgErr||[]).push(String(e.message).slice(0,80))});
 /* inner pages and the phone menu scroll on their own; the paused smooth-scroll must not swallow wheel or touch gestures inside them */
 setTimeout(()=>{["view"].forEach(id=>{const e=document.getElementById(id);e&&e.setAttribute("data-lenis-prevent","")});document.querySelectorAll(".mnav").forEach(e=>e.setAttribute("data-lenis-prevent",""))},0);
+/* smooth scroll inside inner pages (#view), matched to the home page */
+setTimeout(function(){const main=window.__lenis;if(!main||matchMedia("(hover: none)").matches)return;const L=main.constructor;const view=document.getElementById("view");if(!view)return;
+let vl=null,raf=0;const tick=t=>{vl&&vl.raf(t);raf=requestAnimationFrame(tick)};
+const open=()=>{if(vl)return;const inner=view.querySelector(".v-inner")||view.firstElementChild;if(!inner)return;try{vl=new L({wrapper:view,content:inner,duration:1.4,smoothWheel:true,allowNestedScroll:true})}catch(e){(window.__pgErr=window.__pgErr||[]).push("viewLenis "+e.message);return}window.__lenisView=vl;raf=requestAnimationFrame(tick)};
+const close=()=>{if(!vl)return;cancelAnimationFrame(raf);vl.destroy();vl=null;window.__lenisView=null};
+new MutationObserver(()=>{view.classList.contains("on")?open():close()}).observe(view,{attributes:true,attributeFilter:["class"]});
+addEventListener("hashchange",()=>{vl&&setTimeout(()=>vl.scrollTo(0,{immediate:true}),0)});
+view.classList.contains("on")&&open();},0);
 
 var W_=0;V_({open:()=>{W_=gn?gn.scroll:scrollY,gn&&gn.stop(),document.body.classList.add("in-view"),document.body.classList.remove("hdr-light")},close:()=>{document.body.classList.remove("in-view"),gn&&(gn.start(),gn.scrollTo(W_,{immediate:!0})),Zt.refresh()}});document.addEventListener("scroll",s=>{let t=s.target;if(!t||t.id!=="view")return;let e=[...t.querySelectorAll(".pg-foot, .ct-b")].some(n=>{let i=n.getBoundingClientRect();return i.top<=40&&i.bottom>=40});document.body.classList.toggle("hdr-light",e)},!0);Bp(document);addEventListener("load",()=>Zt.refresh());Zt.refresh();})();
 </script>

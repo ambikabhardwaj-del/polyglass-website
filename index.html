@@ -1161,6 +1161,10 @@ html:not(.nav-live) .nv-dd{display:none!important}
 html:not(.pg-ready) #story .st-stage,html:not(.pg-ready) #story .st-photo0,html:not(.pg-ready) #story .st-scan0{visibility:hidden}
 html:not(.pg-ready) #story .st-photo::before{opacity:1!important}
 html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
+/* footer links: a tidy three-column list instead of two ragged centred rows */
+.ft-links{display:grid;grid-template-columns:repeat(3,max-content);gap:10px 44px;justify-content:end;max-width:none}
+.ft-links a{font-size:.95rem;font-weight:500;line-height:1.3}
+@media(max-width:760px){.ft-links{grid-template-columns:repeat(2,max-content);justify-content:start;gap:10px 32px}}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

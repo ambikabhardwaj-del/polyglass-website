@@ -1148,6 +1148,12 @@ body.hdr-light .navpill .nv>a:hover,body.hdr-light .navpill .nv.cur>a,body.hdr-l
 html:not(.pg-ready) #story .st-scan,html:not(.pg-ready) #story .st-big,html:not(.pg-ready) #story .st-small,html:not(.pg-ready) #story .st-badge,html:not(.pg-ready) #story .st-lay,html:not(.pg-ready) #story .st-seq-l,html:not(.pg-ready) #story .st-seq-r,html:not(.pg-ready) #story .st-meter,html:not(.pg-ready) #story .st-keep,html:not(.pg-ready) #story .st-end,html:not(.pg-ready) #story .dg-labels,html:not(.pg-ready) #story .st-scallop,html:not(.pg-ready) #story #heroCue{visibility:hidden}
 html:not(.pg-ready) #story .st-photo{opacity:1;--fog:1}
 html:not(.pg-ready) #story+*{visibility:hidden}
+/* opening screen: the logo fades out for certain (no competing pulse animation) and the screen is released once the halves are gone */
+#splash .ld-mark{animation:ldMark .3s .55s ease-in forwards!important;opacity:.9}
+#splash{animation-delay:1.4s}
+/* dropdowns open only after the pointer has rested on a menu item for a moment, so a quick pass over the menu row does not flash a panel */
+.nv-dd{visibility:hidden;transition:opacity .2s,transform .2s,visibility 0s .2s}
+.nv.has:hover .nv-dd,.nv.has:focus-within .nv-dd{visibility:visible;transition-delay:.18s,.18s,0s}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

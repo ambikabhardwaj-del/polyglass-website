@@ -1166,6 +1166,8 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
 @media(max-width:760px){.ft-links{grid-template-columns:repeat(2,max-content);justify-content:start;gap:10px 32px}}
 /* phones: the stage fills the visible part of the screen, whatever the address bar is doing */
 .st-stick{height:100vh;height:100svh;height:100dvh}
+/* phones: the closing "right system" block on inner pages stacks like it does on the homepage */
+@media(max-width:760px){.pg-cta{grid-template-columns:1fr}.ct-a,.ct-b{min-height:0}.ct-b{min-height:380px}.ct-i{padding:50px 24px 30px}.ct-a h2{font-size:clamp(2.4rem,11vw,3.4rem)}}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

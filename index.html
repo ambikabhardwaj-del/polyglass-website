@@ -1164,6 +1164,8 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
 .ft-links{display:grid;grid-template-columns:repeat(3,max-content);gap:10px 44px;justify-content:end;max-width:none}
 .ft-links a{font-size:.95rem;font-weight:500;line-height:1.3}
 @media(max-width:760px){.ft-links{grid-template-columns:repeat(2,max-content);justify-content:start;gap:10px 32px}}
+/* phones: the stage fills the visible part of the screen, whatever the address bar is doing */
+.st-stick{height:100vh;height:100svh;height:100dvh}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -5735,6 +5737,8 @@ addEventListener("load",()=>setTimeout(()=>{__pgReady||__pgP||__pgLoad().catch((
 (()=>{let x0=null,y0=null,on=()=>document.documentElement.classList.add("nav-live");
  addEventListener("pointermove",e=>{if(x0===null){x0=e.clientX;y0=e.clientY;return}if(Math.abs(e.clientX-x0)+Math.abs(e.clientY-y0)>6)on()},{passive:true});
  addEventListener("keydown",e=>{e.key==="Tab"&&on()})})();
+/* phones: the browser's address bar showing and hiding resizes the page mid-scroll; without this the pinned story re-measures and jumps */
+try{Zt.config({ignoreMobileResize:true})}catch(e){}
 
 var W_=0;V_({open:()=>{W_=gn?gn.scroll:scrollY,gn&&gn.stop(),document.body.classList.add("in-view"),document.body.classList.remove("hdr-light")},close:()=>{document.body.classList.remove("in-view"),gn&&(gn.start(),gn.scrollTo(W_,{immediate:!0})),Zt.refresh()}});document.addEventListener("scroll",s=>{let t=s.target;if(!t||t.id!=="view")return;let e=[...t.querySelectorAll(".pg-foot, .ct-b")].some(n=>{let i=n.getBoundingClientRect();return i.top<=40&&i.bottom>=40});document.body.classList.toggle("hdr-light",e)},!0);Bp(document);addEventListener("load",()=>Zt.refresh());Zt.refresh();})();
 </script>

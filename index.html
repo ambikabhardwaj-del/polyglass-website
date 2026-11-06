@@ -1154,6 +1154,9 @@ html:not(.pg-ready) #story+*{visibility:hidden}
 /* dropdowns open only after the pointer has rested on a menu item for a moment, so a quick pass over the menu row does not flash a panel */
 .nv-dd{visibility:hidden;transition:opacity .2s,transform .2s,visibility 0s .2s}
 .nv.has:hover .nv-dd,.nv.has:focus-within .nv-dd{visibility:visible;transition-delay:.18s,.18s,0s}
+/* dropdowns: none at all until the page is fully set up, and a deliberate pause before one opens */
+html:not(.pg-ready) .nv-dd{display:none!important}
+.nv.has:hover .nv-dd,.nv.has:focus-within .nv-dd{transition-delay:.3s,.3s,0s}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

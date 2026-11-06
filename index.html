@@ -1133,11 +1133,22 @@ body.hdr-light .navpill .nv>a:hover,body.hdr-light .navpill .nv.cur>a,body.hdr-l
 
 /* opening screen: logo only, no percentage counter */
 #loader .ld-n{display:none!important}
+/* opening screen, CSS only: logo for a moment, then the two halves part. Nothing waits for the script. */
+#splash{position:fixed;inset:0;z-index:90;display:grid;place-items:center;pointer-events:none;animation:splashOff .01s 1.3s forwards}
+#splash .ld-mark{animation:ldPulse 1.6s ease-in-out infinite,ldMark .3s .55s ease-in forwards}
+#splash .ld-l{animation:ldL .55s .8s cubic-bezier(.85,0,.15,1) forwards}
+#splash .ld-r{animation:ldR .55s .8s cubic-bezier(.85,0,.15,1) forwards}
+#splash .ld-bar,#splash .ld-n{display:none}
+@keyframes ldMark{to{transform:scale(.6);opacity:0}}
+@keyframes ldL{to{transform:translateX(-100%)}}
+@keyframes ldR{to{transform:translateX(100%)}}
+@keyframes splashOff{to{visibility:hidden}}
+@media(prefers-reduced-motion:reduce){#splash{display:none}}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div id="loader" aria-hidden="true"><div class="ld-half ld-l"></div><div class="ld-half ld-r"></div><div class="ld-bar"></div><img class="ld-mark" src="https://polyglassusstg.wpengine.com/wp-content/themes/polyglass/ui/dark-logo.png" alt="" onerror="this.style.display='none'"><p class="ld-n"><span id="ldN">000</span><small>%</small></p></div>
+<div id="splash" aria-hidden="true"><div class="ld-half ld-l"></div><div class="ld-half ld-r"></div><div class="ld-bar"></div><img class="ld-mark" src="https://polyglassusstg.wpengine.com/wp-content/themes/polyglass/ui/dark-logo.png" alt="" onerror="this.style.display='none'"><p class="ld-n"><span id="ldN">000</span><small>%</small></p></div>
 
 <header id="hdr">
  <a class="logo" href="#/" aria-label="Polyglass home"><img src="https://polyglassusstg.wpengine.com/wp-content/themes/polyglass/ui/dark-logo.png" alt="Polyglass, a MAPEI Group company" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="lt">POLYGLASS</span></a>

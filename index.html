@@ -1188,6 +1188,9 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
 }
 /* phone: keep the "266 products" block clear of the blueprint meter */
 @media(max-width:760px){#story #seqR.st-seq-r.ed{bottom:20vh;width:auto!important;background:rgba(241,239,232,.92)!important;-webkit-backdrop-filter:blur(10px)!important;backdrop-filter:blur(10px)!important;padding:18px 20px!important;border-radius:18px!important;border:1px solid rgba(0,106,108,.12)!important}#story .st-meter{bottom:5vh;width:min(360px,70vw)}}
+/* header: the underline follows the open menu, so title and dropdown always match */
+.navpill .nv:hover>a::after,.navpill .nv.has:focus-within>a::after{transform:scaleX(1)!important}
+.navpill:hover .nv.cur:not(:hover)>a::after,.navpill:focus-within .nv.cur:not(:focus-within)>a::after{transform:scaleX(0)!important}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

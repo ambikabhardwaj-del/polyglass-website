@@ -1218,6 +1218,36 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
  #story .st-photo::before{background:linear-gradient(180deg,rgba(241,239,232,.96) 0%,rgba(241,239,232,.9) 42%,rgba(241,239,232,.5) 60%,rgba(241,239,232,0) 72%,rgba(241,239,232,.92) 90%)}
 }
 @media(prefers-reduced-motion:reduce){#story .hc-btns .pill,#story .hc-btns .pill svg{transition:none!important}}
+
+/* ===== Homepage typography system (9 Nov, Marshall feedback B) =====
+   Display face: Barlow Condensed 700, uppercase, line-height .88, tracking -.005em, three sizes only.
+   D1 hero/closing headline  clamp(3rem,7.4vw,8rem)      ~101px @1366
+   D2 section headlines      clamp(2.75rem,6vw,6.4rem)   ~82px  @1366  (was 87 / 109 / 116 / 130 / 137 / 171)
+   D3 card + story headings  clamp(1.75rem,2.5vw,2.5rem) ~34px  @1366  (was 18 / 24 / 26 / 35 / 41)
+   Labels: Manrope 700 12px, .18em, uppercase (was 10-12px with .18-.22em)
+   Body:   Manrope 400 16px / 1.6.  Lede: Manrope 500 18px / 1.5.  Buttons: Manrope 700 15px, tracking 0. */
+:root{--d1:clamp(3rem,7.4vw,8rem);--d2:clamp(2.75rem,6vw,6.4rem);--d3:clamp(1.75rem,2.5vw,2.5rem)}
+#story .st-h1,#story #endCopy .end-h,#story .st-big,#story .ed-num{font-size:var(--d1)!important;line-height:.88!important;letter-spacing:-.005em!important}
+#statement .sm-h,#range .rg-h,#built .bt-h,#stories .ps-h,#cta .ct-a h2{font-size:var(--d2)!important;line-height:.9!important;letter-spacing:-.005em!important;font-weight:700!important}
+#statement .sm-h{max-width:18ch}
+#story .st-lay h2,#story .st-badge,#foot .ft-tag,#range .rc-info b,#stories .ps-card b,#range .rc-n{font-family:var(--disp)!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:-.005em!important;line-height:.95!important}
+#story .st-lay h2{font-size:var(--d3)!important}
+#story .st-badge{font-size:clamp(1.5rem,2vw,2.2rem)!important;line-height:.9!important}
+#foot .ft-tag,#stories .ps-card b,#range .rc-info b{font-size:clamp(1.25rem,1.6vw,1.5rem)!important;line-height:1!important}
+#range .rc-n{font-size:clamp(1.25rem,1.6vw,1.5rem)!important;line-height:1!important}
+#story .st-k,#statement .sm-note,#statement .ap-k,#range .rc-c,#cta .ct-k,#cta .ct-bk,#foot .ft-k{font-family:var(--body)!important;font-weight:700!important;font-size:.75rem!important;letter-spacing:.18em!important;text-transform:uppercase!important;line-height:1.4!important}
+#story .st-lay p:not(.st-k),#cta .ct-p,#built .bt-copy p,#range .rc-info i,#stories .ps-card span{font-family:var(--body)!important;font-weight:400!important;font-size:1rem!important;line-height:1.6!important;letter-spacing:0!important}
+#story .ed .ed-t,#story .ed-t{font-weight:500!important;font-size:clamp(1rem,1.3vw,1.125rem)!important;line-height:1.5!important;letter-spacing:0!important}
+#story .st-more,#cta .ct-l{font-weight:600!important;font-size:.95rem!important}
+.pill,.pill.light,.hdr-rep{letter-spacing:0!important;font-weight:700!important;font-size:.95rem!important}
+#range .rc-info i{font-size:.8rem!important;line-height:1.5!important}
+@media(max-width:760px){
+ :root{--d1:clamp(2.8rem,14vw,4.6rem);--d2:clamp(2.4rem,11vw,3.6rem);--d3:clamp(1.5rem,6vw,2rem)}
+ #story .st-badge{font-size:1.5rem!important}
+ #foot .ft-tag,#stories .ps-card b,#range .rc-info b{font-size:1.2rem!important}
+ #range .rc-n{font-size:1rem!important;line-height:1.05!important}
+ #range .rc-c{font-size:.65rem!important;letter-spacing:.14em!important}
+}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

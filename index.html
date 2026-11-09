@@ -1034,7 +1034,7 @@ html.view-open #hdr{right:var(--vsb,0px)}
 .dg-labels{transition:opacity .6s}
 @media(max-width:760px){#story{height:1350vh}}
 /* homepage hero: the "From the deck up" text block and its light wash are removed so the building shows clearly */
-#story #heroCopy{display:none!important}
+
 /* homepage closing frame: "Built to last" uses the hero headline's font, size and place; the sentence and the mist behind it are removed */
 #story #endCopy{left:var(--gut)!important;right:auto!important;top:15vh!important;width:auto!important}
 #story #endCopy::before{display:none!important}
@@ -1191,6 +1191,32 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
 /* header: the underline follows the open menu, so title and dropdown always match */
 .navpill .nv:hover>a::after,.navpill .nv.has:focus-within>a::after{transform:scaleX(1)!important}
 .navpill:hover .nv.cur:not(:hover)>a::after,.navpill:focus-within .nv.cur:not(:focus-within)>a::after{transform:scaleX(0)!important}
+
+/* opening + closing screens: option A (lede + two buttons) under the headline. Positions follow .st-h1 / #endCopy exactly. */
+#story #heroCopy{left:var(--gut)!important;right:auto!important;bottom:auto!important;top:calc(15vh + 2.64*clamp(3rem,7.4vw,8rem) + 3.5vh)!important;width:min(44vw,560px)!important;padding:0!important;z-index:3}
+#story .hc-t{font-family:var(--body)!important;font-weight:500!important;font-size:clamp(1rem,1.25vw,1.25rem)!important;line-height:1.5!important;color:#003739!important;max-width:46ch;margin:0 0 22px!important}
+#story #endCopy .hc-t{margin-top:26px!important}
+#story .hc-btns{display:flex;gap:12px;flex-wrap:wrap}
+#story .hc-btns .pill{display:inline-flex;align-items:center;gap:10px;font-family:var(--body)!important;font-weight:700!important;font-size:.95rem!important;padding:13px 22px!important;min-height:44px;border-radius:999px!important;letter-spacing:0!important;text-transform:none!important;transition:transform .45s cubic-bezier(.2,.8,.2,1),background .45s,color .45s!important}
+#story .hc-btns .pill svg{width:16px;height:16px;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+#story .hc-btns .pill:hover{transform:translateY(-2px)}
+#story .hc-btns .pill:hover svg{transform:translateX(4px)}
+#story .hc-btns .hc-p{background:var(--teal)!important;border-color:var(--teal)!important;color:#fff!important}
+#story .hc-btns .hc-p:hover{background:#003739!important;border-color:#003739!important}
+#story .hc-btns .hc-o{background:var(--orange)!important;border-color:var(--orange)!important;color:#1a1a1a!important}
+#story .hc-btns .hc-o:hover{background:#D97A0C!important;border-color:#D97A0C!important}
+#story .hc-btns .hc-g{background:none!important;border:1.5px solid #003739!important;color:#003739!important}
+#story .hc-btns .hc-g:hover{background:rgba(0,55,57,.08)!important}
+@media(max-width:760px){
+ #story .st-h1{max-width:none}
+ #story #heroCopy{left:18px!important;right:18px!important;width:auto!important;top:calc(10vh + 2.64*clamp(3rem,15vw,4.8rem) + 3vh)!important}
+ #story .hc-t{font-size:1rem!important;margin-bottom:16px!important}
+ #story #endCopy .hc-t{margin-top:18px!important}
+ #story .hc-btns .pill{padding:11px 18px!important;font-size:.9rem!important}
+ #story .hc-btns .hc-g{background:rgba(241,239,232,.9)!important}
+ #story .st-photo::before{background:linear-gradient(180deg,rgba(241,239,232,.96) 0%,rgba(241,239,232,.9) 42%,rgba(241,239,232,.5) 60%,rgba(241,239,232,0) 72%,rgba(241,239,232,.92) 90%)}
+}
+@media(prefers-reduced-motion:reduce){#story .hc-btns .pill,#story .hc-btns .pill svg{transition:none!important}}
 </style><link rel="preload" as="image" href="img/building.jpg"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -1214,7 +1240,7 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
   <!-- hero composition -->
   <h1 id="heroH1" class="st-h1"><span>Protection</span><span>in every</span><span>layer.</span></h1>
   <svg id="heroDoodle" class="st-doodle" data-a="0" data-b="9" viewBox="-6 -6 332 232" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 150l140-80 140 80"/><path d="M40 140v60h240v-60"/><path d="M60 128l100-57 100 57M80 118l80-46 80 46"/><path d="M110 200v-40h40v40M200 160h40v30h-40z"/><path d="M160 70v-28M150 50l10-8 10 8"/></svg>
-  <div id="heroCopy" class="st-copy ed" data-a="0" data-b="7"><p class="ed-k">From the deck up</p><p class="ed-t">Roofing and waterproofing systems engineered as one assembly. Every layer has a role. Together they keep the weather out.</p><a class="pill ed-link" href="#/roofing"><span>Discover systems</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
+  <div id="heroCopy" class="st-copy ed" data-a="0" data-b="7"><p class="ed-t hc-t">Roofing and waterproofing systems engineered as one assembly. Every layer has a role. Together they keep the weather out.</p><div class="hc-btns"><a class="pill hc-p" href="#/roofing">Discover systems<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="pill hc-g" href="#/page/sales-rep-locator">Talk to a rep</a></div></div>
   
 
   <!-- the object starts to tell the story -->
@@ -1236,7 +1262,7 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
 
   <!-- the finished building over the closing words, with the next section rising beneath it -->
   <p id="keep" class="st-keep" aria-hidden="true">Built to last.</p>
-  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><h2 class="end-h"><span>Built to</span><span>last, layer</span><span>by layer.</span></h2></div>
+  <div id="endCopy" class="st-end ed" data-a="90" data-b="100"><h2 class="end-h"><span>Built to</span><span>last, layer</span><span>by layer.</span></h2><p class="ed-t hc-t">Deck, barrier, insulation, coverboard, base and cap: specified together, installed in order, warranted as one.</p><div class="hc-btns"><a class="pill hc-o" href="#/page/sales-rep-locator">Talk to a rep<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="pill hc-g" href="#/roofing">Explore systems</a></div></div>
   <ol class="dg-labels"><li data-step="0"><b>01</b><span>Cap sheet</span></li><li data-step="1"><b>02</b><span>Base sheet</span></li><li data-step="2"><b>03</b><span>Coverboard</span></li><li data-step="3"><b>04</b><span>Insulation</span></li><li data-step="4"><b>05</b><span>Air &amp; vapor barrier</span></li><li data-step="5"><b>06</b><span>Roof deck</span></li></ol><svg class="dg-svg" aria-hidden="true"></svg><div id="scallop" class="st-scallop" aria-hidden="true"></div>
  </div>
 </section>

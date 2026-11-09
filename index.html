@@ -1193,6 +1193,7 @@ html:not(.pg-ready) #story .st-photo::after{opacity:0!important}
 .navpill:hover .nv.cur:not(:hover)>a::after,.navpill:focus-within .nv.cur:not(:focus-within)>a::after{transform:scaleX(0)!important}
 
 /* opening + closing screens: option A (lede + two buttons) under the headline. Positions follow .st-h1 / #endCopy exactly. */
+#story #heroCopy::before,#story #heroCopy::after{display:none!important}
 #story #heroCopy{left:var(--gut)!important;right:auto!important;bottom:auto!important;top:calc(15vh + 2.64*clamp(3rem,7.4vw,8rem) + 3.5vh)!important;width:min(44vw,560px)!important;padding:0!important;z-index:3}
 #story .hc-t{font-family:var(--body)!important;font-weight:500!important;font-size:clamp(1rem,1.25vw,1.25rem)!important;line-height:1.5!important;color:#003739!important;max-width:46ch;margin:0 0 22px!important}
 #story #endCopy .hc-t{margin-top:26px!important}

@@ -1275,7 +1275,10 @@ html.pg-phone #story .st-frames{will-change:transform}
 .st-frames{position:absolute;inset:0;width:100%;height:100%;display:block}
 html.pg-phone #story .st-fb{display:none!important}
 .v-subtog{display:none}
-.v-tile.iq-t img{width:80%!important;height:88%!important;object-fit:contain;object-position:bottom;max-width:none}
+html.pg-phone #view .v-card .v-tile{display:block!important;position:relative}
+html.pg-phone #view .v-card .v-tile img{position:absolute!important;left:10%;bottom:9%;width:80%!important;height:82%!important;margin:0!important;object-fit:contain;object-position:bottom;max-width:none}
+html.pg-phone #view .v-card .v-tile.iq-w img{left:11%;bottom:11%;width:78%!important;height:78%!important}
+html.pg-phone #view .v-card .v-tile .v-noimg{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center}
 @media(max-width:760px){
  /* family row: one line that scrolls, with a fade on the right as the hint */
  #view .v-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;gap:8px;padding:6px 0 12px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent)}
